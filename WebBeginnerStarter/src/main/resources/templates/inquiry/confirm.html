@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+<h1 th:text="${title}">仮のタイトル</h1>
+<div th:object="${inquiryForm}">
+	<p th:text="*{name}"></p>
+	<p th:text="*{email}"></p>
+	<p th:text="*{contents}"></p>
+	<!--
+		戻るボタン
+		戻るときにも送信データを反映する。
+		こうしておくと前のページに戻ったときに入力内容が消えない。
+	-->
+	<form method="post" action="#" th:action="@{/inquiry/form}">
+		<input type="hidden" name="name" th:value="*{name}">
+		<input type="hidden" name="email" th:value="*{email}">
+		<input type="hidden" name="contents" th:value="*{contents}">
+		<input type="submit" value="戻る">
+	</form>
+	<!--
+		入力完了ボタン
+		type=hiddenにしているため、ユーザーからは見えていないがデータとしては送信できている。
+		ブラウザ上からはボタンしか見えない。
+	-->
+	<form method="post" action="#" th:action="@{/inquiry/complete}">
+		<input type="hidden" name="name" th:value="*{name}">
+		<input type="hidden" name="email" th:value="*{email}">
+		<input type="hidden" name="contents" th:value="*{contents}">
+		<input type="submit" value="Complete">
+	</form>
+</div>
+</body>
+</html>

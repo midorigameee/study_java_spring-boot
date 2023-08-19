@@ -1,0 +1,12 @@
+Springは様々なプロジェクトの集まり
+    Spring Boot 複雑な設定なしにSpringプロジェクトを作成
+    Spring Framework WEBアプリのコアな機能を提供
+    Spring Data データベース操作を簡潔化
+    Spring Security ログイン認証、CSRF対策
+
+    一般的にはSpringと言ったらSpring Boot
+
+シングルトン
+    インスタンスが1つしか生成されないデザインパターン
+
+    
